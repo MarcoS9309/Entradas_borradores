@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Chakana in JavaScript</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://threejs.org/build/three.js"></script>
+    <script src="https://threejs.org/examples/jsm/controls/OrbitControls.js"></script>
+    <script src="https://threejs.org/examples/jsm/loaders/SVGLoader.js"></script>
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Orbit controls for rotation and zooming
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        camera.position.z = 100;
+
+        // Load and extrude the Chakana SVG
+        const loader = new THREE.SVGLoader();
+        loader.load('https://upload.wikimedia.org/wikipedia/commons/4/48/Tawa_chakana.svg', function (data) {
+            const paths = data.paths;
+            const group = new THREE.Group();
+            group.scale.multiplyScalar(0.25);
+            group.position.x = -70;
+            group.position.y = 70;
+            group.scale.y = -1; // Flip vertically for correct orientation
+
+            for (const path of paths) {
+                const shapes = SVGLoader.createShapes(path);
+                for (const shape of shapes) {
+                    const geometry = new THREE.ExtrudeGeometry(shape, {
+                        depth: 20, // Depth for 3D extrusion
+                        bevelEnabled: false
+                    });
+                    const material = new THREE.MeshBasicMaterial({
+                        color: path.color || 0x000000,
+                        side: THREE.DoubleSide
+                    });
+                    const mesh = new THREE.Mesh(geometry, material);
+                    group.add(mesh);
+                }
+            }
+
+            scene.add(group);
+        });
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', function () {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

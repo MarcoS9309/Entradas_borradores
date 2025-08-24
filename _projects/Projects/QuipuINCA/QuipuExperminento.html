@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quipu Interactivo</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="quipuCanvas" width="400" height="300"></canvas>
+    <button onclick="addKnot()">Agregar Nudo</button>
+    <p>Nudos: <span id="knotCount">0</span></p>
+
+    <script>
+        const canvas = document.getElementById('quipuCanvas');
+        const ctx = canvas.getContext('2d');
+        let knotCount = 0;
+
+        function drawQuipu() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#87CEEB'; // Cuerda azul
+            ctx.fillRect(50, 50, 10, 200); // Cuerda principal
+            ctx.fillStyle = '#FFD700'; // Nudos amarillos
+            for (let i = 0; i < knotCount; i++) {
+                ctx.beginPath();
+                ctx.arc(55, 70 + i * 20, 5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function addKnot() {
+            knotCount++;
+            document.getElementById('knotCount').textContent = knotCount;
+            drawQuipu();
+        }
+
+        drawQuipu(); // Dibuja el quipu inicial
+    </script>
+</body>
+</html>
