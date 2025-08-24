@@ -14,10 +14,10 @@ Repositorio de aprendizaje de programación organizado en 4 categorías temátic
 ## 📊 Distribución por categoría
 
 ```text
-� Learning: 5 archivos (36%) - Proceso de aprendizaje
-� Tech: 4 archivos (29%) - Tecnología y herramientas  
+📚 Learning: 5 archivos (36%) - Proceso de aprendizaje
+💻 Tech: 4 archivos (29%) - Tecnología y herramientas
 📝 Drafts: 3 archivos (21%) - Borradores en desarrollo
-� Experiments: 2 archivos (14%) - Experimentos creativos
+🧪 Experiments: 2 archivos (14%) - Experimentos creativos
 ```
 
 ## 🚀 Proyectos de Desarrollo (`_projects/`)
@@ -38,6 +38,6 @@ Repositorio de aprendizaje de programación organizado en 4 categorías temátic
 ## 💻 Tecnologías Principales
 
 - Python (aplicaciones, juegos, automatización)
-- JavaScript (web, interactividad, visualizaciones)  
+- JavaScript (web, interactividad, visualizaciones)
 - HTML/CSS (diseño, interfaces, experimentos)
 - Git/GitHub (control de versiones, documentación)
