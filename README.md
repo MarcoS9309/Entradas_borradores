@@ -66,6 +66,10 @@ Este es un repositorio personal de aprendizaje, pero se aceptan:
 - Recursos de aprendizaje relevantes
 - Reportes de bugs en los experimentos
 
+## 📚 Recursos Recomendados
+
+Consulta el archivo [RESOURCES.md](RESOURCES.md) para una lista curada de enlaces y documentación útil que complementa el proceso de aprendizaje.
+
 ## 📞 Nota Importante
 
 Este repositorio contiene trabajo en progreso y experimentos. El código y contenido están en constante evolución como parte del proceso de aprendizaje. Algunos proyectos pueden estar incompletos o en fase de prototipo.
@@ -135,3 +139,4 @@ To run the validation:
 ```
 
 This helps maintain code quality and catch issues early in the development process.
+
