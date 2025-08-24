@@ -117,3 +117,21 @@ Development of a community website for the Jerusalem parish, focused on cultural
 ## Repository Maintenance
 
 This repository now includes a `.gitignore` file to avoid committing operating system files like `.DS_Store` and other temporary artifacts. Keeping these files out of version control helps maintain a clean history and ensures cross-platform compatibility.
+
+### Quality Validation
+
+The repository includes a validation script (`validate.sh`) that automatically checks:
+
+- HTML syntax validation
+- Python syntax validation  
+- JavaScript syntax validation (if Node.js is available)
+- Required files presence
+- Potential broken links
+
+To run the validation:
+
+```bash
+./validate.sh
+```
+
+This helps maintain code quality and catch issues early in the development process.
